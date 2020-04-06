@@ -18,9 +18,15 @@ const useLocalStorage = (key, initialValue) => {
 const useDarkMode = () => {
     const [darkModeStatus, setDarkModeStatus] = useLocalStorage('darkKey');
 
+    // const toggleDarkMode = () => {
+    //     setDarkModeStatus(!darkModeStatus)
+    // }
+
     useEffect(() => {
-        if(darkModeStatus===true) {
-            document.body.classList.toggle('dark-mode');
+        if(darkModeStatus) {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
         }
     }, [darkModeStatus])
 
